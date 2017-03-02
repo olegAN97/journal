@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $name
  * @property int $journal_id
+ * @property int $user_id
  *
  * @property \App\Model\Entity\Journal $journal
  * @property \App\Model\Entity\Mark[] $marks

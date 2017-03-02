@@ -41,7 +41,7 @@ class TeachersTable extends Table
             'targetForeignKey' => 'subject_id',
             'joinTable' => 'teachers_subjects'
         ]);
-        $this->hasOne('Users', [
+        $this->belongsTo('Users', [
             'foreignKey' => 'user_id']);
     }
 
