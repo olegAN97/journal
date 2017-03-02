@@ -44,7 +44,7 @@ class StudentsTable extends Table
         $this->hasMany('Marks', [
             'foreignKey' => 'student_id'
         ]);
-        $this->hasOne('Users', [
+        $this->belongsTo('Users', [
             'foreignKey' => 'user_id']);
     }
 

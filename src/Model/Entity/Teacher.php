@@ -10,6 +10,7 @@ use Cake\ORM\Entity;
  * @property string $name
  * @property string $position
  * @property int $experience
+ * @property int $user_id
  *
  * @property \App\Model\Entity\Subject[] $subjects
  */

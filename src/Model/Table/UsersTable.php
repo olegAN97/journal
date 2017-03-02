@@ -37,10 +37,10 @@ class UsersTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Students', [
+        $this->hasMany('Students', [
             'foreignKey' => 'user_id'
         ]);
-        $this->belongsTo('Teachers', [
+        $this->hasMany('Teachers', [
             'foreignKey' => 'user_id'
         ]);
     }
