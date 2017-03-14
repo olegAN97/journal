@@ -11,6 +11,7 @@ use App\Controller\AppController;
 class UsersController extends AppController
 {
 
+
     /**
      * Index method
      *
@@ -18,9 +19,7 @@ class UsersController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Students', 'Teachers']
-        ];
+
         $users = $this->paginate($this->Users);
 
         $this->set(compact('users'));
@@ -61,9 +60,7 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $students = $this->Users->Students->find('list', ['limit' => 200]);
-        $teachers = $this->Users->Teachers->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'students', 'teachers'));
+        $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
 
@@ -88,9 +85,7 @@ class UsersController extends AppController
             }
             $this->Flash->error(__('The user could not be saved. Please, try again.'));
         }
-        $students = $this->Users->Students->find('list', ['limit' => 200]);
-        $teachers = $this->Users->Teachers->find('list', ['limit' => 200]);
-        $this->set(compact('user', 'students', 'teachers'));
+        $this->set(compact('user'));
         $this->set('_serialize', ['user']);
     }
 
@@ -113,4 +108,32 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    /**
+     *
+     * Login action for users
+     */
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error('Your username or password is incorrect.');
+        }
+    }
+
+    /**
+     * Function to logout cuurent user
+     *
+     * @return \Cake\Network\Response|null
+     */
+    public function logout()
+    {
+        $this->Flash->success('You are now logged out.');
+        return $this->redirect($this->Auth->logout());
+    }
 }
+

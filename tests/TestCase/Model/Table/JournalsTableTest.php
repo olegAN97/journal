@@ -25,9 +25,13 @@ class JournalsTableTest extends TestCase
      */
     public $fixtures = [
         'app.journals',
+        'app.students',
+        'app.marks',
         'app.subjects',
         'app.journals_subjects',
-        'app.students'
+        'app.teachers',
+        'app.teachers_subjects',
+        'app.users'
     ];
 
     /**

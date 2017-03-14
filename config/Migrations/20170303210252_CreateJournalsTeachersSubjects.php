@@ -1,7 +1,7 @@
 <?php
 use Migrations\AbstractMigration;
 
-class CreateSubjects extends AbstractMigration
+class CreateJournalsTeachersSubjects extends AbstractMigration
 {
     /**
      * Change Method.
@@ -12,10 +12,15 @@ class CreateSubjects extends AbstractMigration
      */
     public function change()
     {
-        $table = $this->table('subjects');
-        $table->addColumn('title', 'string', [
+        $table = $this->table('journals_teachers_subjects');
+        $table->addColumn('teacher_subject_id', 'integer', [
             'default' => null,
-            'limit' => 255,
+            'limit' => 11,
+            'null' => false,
+        ]);
+        $table->addColumn('journal_id', 'integer', [
+            'default' => null,
+            'limit' => 11,
             'null' => false,
         ]);
         $table->create();

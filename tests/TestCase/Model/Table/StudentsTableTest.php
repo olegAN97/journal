@@ -27,8 +27,11 @@ class StudentsTableTest extends TestCase
         'app.students',
         'app.journals',
         'app.subjects',
+        'app.marks',
         'app.journals_subjects',
-        'app.marks'
+        'app.teachers',
+        'app.teachers_subjects',
+        'app.users'
     ];
 
     /**

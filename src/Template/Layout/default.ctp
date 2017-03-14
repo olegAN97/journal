@@ -3,7 +3,7 @@
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
- * Licensed under The MIT License
+     * Licensed under The MIT License
  * For full copyright and license information, please see the LICENSE.txt
  * Redistributions of files must retain the above copyright notice.
  *
@@ -44,12 +44,39 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
             <ul class="right">
                 <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
                 <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
+                <li> <?= $this->Html->link(__('Logout'), ['controller'=>'users','action' => 'logout']) ?></li>
             </ul>
         </div>
     </nav>
+    <nav class="large-3 medium-4 columns" id="actions-sidebar">
+        <ul class="side-nav">
+            <li class="heading"><?= __('Actions') ?></li>
+
+            <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+
+            <li><?= $this->Html->link(__('New Students'), ['controller' => 'Students', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Students'), ['action' => 'index']) ?></li>
+
+            <li><?= $this->Html->link(__('New Subjects'), ['controller' => 'Subjects', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Subjects'), ['controller' => 'Subjects', 'action' => 'index']) ?></li>
+
+            <li><?= $this->Html->link(__('New Teachers'), ['controller' => 'Teachers', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Teachers'), ['controller' => 'Teachers', 'action' => 'index']) ?></li>
+
+            <li><?= $this->Html->link(__('New Journals'), ['controller' => 'Journals', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Journals'), ['controller' => 'Journals', 'action' => 'index']) ?></li>
+
+            <li><?= $this->Html->link(__('New Marks'), ['controller' => 'Marks', 'action' => 'add']) ?></li>
+            <li><?= $this->Html->link(__('List Marks'), ['controller' => 'Marks', 'action' => 'index']) ?></li>
+
+        </ul>
+    </nav>
     <?= $this->Flash->render() ?>
     <div class="container clearfix">
+
         <?= $this->fetch('content') ?>
+
     </div>
     <footer>
     </footer>

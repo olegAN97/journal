@@ -8,7 +8,6 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property string $title
- * @property int $teacher_id
  *
  * @property \App\Model\Entity\Teacher[] $teachers
  * @property \App\Model\Entity\Journal[] $journals
