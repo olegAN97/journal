@@ -1,22 +1,22 @@
 <?php
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\TeachersTable;
+use App\Model\Table\JournalsTeachersSubjectsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\TeachersTable Test Case
+ * App\Model\Table\JournalsTeachersSubjectsTable Test Case
  */
-class TeachersTableTest extends TestCase
+class JournalsTeachersSubjectsTableTest extends TestCase
 {
 
     /**
      * Test subject
      *
-     * @var \App\Model\Table\TeachersTable
+     * @var \App\Model\Table\JournalsTeachersSubjectsTable
      */
-    public $Teachers;
+    public $JournalsTeachersSubjects;
 
     /**
      * Fixtures
@@ -24,14 +24,16 @@ class TeachersTableTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.teachers',
-        'app.subjects',
-        'app.marks',
-        'app.students',
+        'app.journals_teachers_subjects',
+        'app.teacher_subjects',
         'app.journals',
+        'app.students',
+        'app.marks',
+        'app.subjects',
         'app.journals_subjects',
-        'app.users',
-        'app.teachers_subjects'
+        'app.teachers',
+        'app.teachers_subjects',
+        'app.users'
     ];
 
     /**
@@ -42,8 +44,8 @@ class TeachersTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Teachers') ? [] : ['className' => 'App\Model\Table\TeachersTable'];
-        $this->Teachers = TableRegistry::get('Teachers', $config);
+        $config = TableRegistry::exists('JournalsTeachersSubjects') ? [] : ['className' => 'App\Model\Table\JournalsTeachersSubjectsTable'];
+        $this->JournalsTeachersSubjects = TableRegistry::get('JournalsTeachersSubjects', $config);
     }
 
     /**
@@ -53,7 +55,7 @@ class TeachersTableTest extends TestCase
      */
     public function tearDown()
     {
-        unset($this->Teachers);
+        unset($this->JournalsTeachersSubjects);
 
         parent::tearDown();
     }
@@ -74,6 +76,16 @@ class TeachersTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault()
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules()
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

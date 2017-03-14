@@ -23,11 +23,6 @@ class CreateJournals extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('subject_id', 'integer', [
-            'default' => null,
-            'limit' => 11,
-            'null' => false,
-        ]);
         $table->create();
     }
 }

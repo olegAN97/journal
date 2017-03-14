@@ -3,15 +3,14 @@
   * @var \App\View\AppView $this
   */
 ?>
-
-<div class="teachers form large-12 medium-8 columns content">
-    <?= $this->Form->create($teacher) ?>
+<
+<div class="students form large-12 medium-8 columns content">
+    <?= $this->Form->create($student) ?>
     <fieldset>
-        <legend><?= __('Add Teacher') ?></legend>
+        <legend><?= __('Edit Student') ?></legend>
         <?php
             echo $this->Form->control('name');
-            echo $this->Form->control('position');
-            echo $this->Form->control('experience');
+            echo $this->Form->control('journal_id', ['options' => $journals]);
             echo $this->Form->control('user_id', ['options' => $users]);
         ?>
     </fieldset>

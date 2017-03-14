@@ -18,6 +18,9 @@ class TeachersController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Users']
+        ];
         $teachers = $this->paginate($this->Teachers);
 
         $this->set(compact('teachers'));
@@ -34,7 +37,7 @@ class TeachersController extends AppController
     public function view($id = null)
     {
         $teacher = $this->Teachers->get($id, [
-            'contain' => ['Subjects', 'Users']
+            'contain' => ['Users', 'Subjects']
         ]);
 
         $this->set('teacher', $teacher);
@@ -58,8 +61,8 @@ class TeachersController extends AppController
             }
             $this->Flash->error(__('The teacher could not be saved. Please, try again.'));
         }
-        $subjects = $this->Teachers->Subjects->find('list', ['limit' => 200]);
-        $this->set(compact('teacher', 'subjects'));
+        $users = $this->Teachers->Users->find('list', ['limit' => 200]);
+        $this->set(compact('teacher', 'users'));
         $this->set('_serialize', ['teacher']);
     }
 
@@ -84,8 +87,9 @@ class TeachersController extends AppController
             }
             $this->Flash->error(__('The teacher could not be saved. Please, try again.'));
         }
+        $users = $this->Teachers->Users->find('list', ['limit' => 200]);
         $subjects = $this->Teachers->Subjects->find('list', ['limit' => 200]);
-        $this->set(compact('teacher', 'subjects'));
+        $this->set(compact('teacher', 'users', 'subjects'));
         $this->set('_serialize', ['teacher']);
     }
 

@@ -39,17 +39,28 @@ class AppController extends Controller
      */
     public function initialize()
     {
-        parent::initialize();
 
-        $this->loadComponent('RequestHandler');
-        $this->loadComponent('Flash');
+            $this->loadComponent('Flash');
+            $this->loadComponent('Auth', [
+                'authorize' => 'Controller',
+                'authenticate' => [
+                    'Form' => [
+                        'fields' => [
+                            'username' => 'login',
+                            'password' => 'password'
+                        ]
+                    ]
+                ],
+                'loginAction' => [
+                    'controller' => 'Users',
+                    'action' => 'login'
+                ],
+                'unauthorizedRedirect' => $this->referer('/users')
+            ]);
+// Allow the display action so our pages controller
+            $this->Auth->allow(['logout', 'login']);
 
-        /*
-         * Enable the following components for recommended CakePHP security settings.
-         * see http://book.cakephp.org/3.0/en/controllers/components/security.html
-         */
-        //$this->loadComponent('Security');
-        //$this->loadComponent('Csrf');
+//        $this->loadComponent('RequestHandler');
     }
 
     /**
@@ -65,5 +76,24 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+
+    /**
+     * Check is current user authorized
+     *
+     * @param $user
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        $action = $this->request->getParam('action');
+        $user = $this->Auth->user();
+        if ($user['role'] == "teacher") {
+            return true;
+        }
+        if (in_array($action, ['index', 'view','login'])) {
+            return true;
+        }
+        return false;
     }
 }

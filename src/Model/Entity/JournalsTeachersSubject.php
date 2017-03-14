@@ -1,25 +1,21 @@
 <?php
 namespace App\Model\Entity;
 
-use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Entity;
 
 /**
- * User Entity
+ * JournalsTeachersSubject Entity
  *
  * @property int $id
- * @property string $login
- * @property string $password
- * @property string $role
+ * @property int $teacher_subject_id
+ * @property int $journal_id
+ *
+ * @property \App\Model\Entity\TeacherSubject $teacher_subject
+ * @property \App\Model\Entity\Journal $journal
  */
-class User extends Entity
+class JournalsTeachersSubject extends Entity
 {
 
-    public function _setPassword($value)
-    {
-        $hasher= new DefaultPasswordHasher();
-        return $hasher->hash($value);
-    }
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
      *
@@ -32,14 +28,5 @@ class User extends Entity
     protected $_accessible = [
         '*' => true,
         'id' => false
-    ];
-
-    /**
-     * Fields that are excluded from JSON versions of the entity.
-     *
-     * @var array
-     */
-    protected $_hidden = [
-        'password'
     ];
 }
