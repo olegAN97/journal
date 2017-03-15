@@ -12,39 +12,6 @@ class MarksController extends AppController
 {
 
     /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Students', 'Subjects']
-        ];
-        $marks = $this->paginate($this->Marks);
-
-        $this->set(compact('marks'));
-        $this->set('_serialize', ['marks']);
-    }
-
-    /**
-     * View method
-     *
-     * @param string|null $id Mark id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $mark = $this->Marks->get($id, [
-            'contain' => ['Students', 'Subjects']
-        ]);
-
-        $this->set('mark', $mark);
-        $this->set('_serialize', ['mark']);
-    }
-
-    /**
      * Add method
      *
      * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
@@ -57,7 +24,7 @@ class MarksController extends AppController
             if ($this->Marks->save($mark)) {
                 $this->Flash->success(__('The mark has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'add']);
             }
             $this->Flash->error(__('The mark could not be saved. Please, try again.'));
         }
@@ -84,7 +51,7 @@ class MarksController extends AppController
             if ($this->Marks->save($mark)) {
                 $this->Flash->success(__('The mark has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'edit']);
             }
             $this->Flash->error(__('The mark could not be saved. Please, try again.'));
         }
@@ -111,6 +78,6 @@ class MarksController extends AppController
             $this->Flash->error(__('The mark could not be deleted. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect(['action' => 'add']);
     }
 }

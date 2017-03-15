@@ -37,11 +37,12 @@ class JournalsTeachersSubjectsTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->hasOne('TeacherSubjects');
-        $this->hasMany('Journals', [
-            'foreignKey' => 'journal_id',
+
+        $this->belongsTo('TeachersSubjects' ,[
+            'foreignKey' => 'teacher_subject_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Journals');
     }
 
     /**
@@ -68,9 +69,8 @@ class JournalsTeachersSubjectsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['teacher_subject_id'], 'TeacherSubjects'));
         $rules->add($rules->existsIn(['journal_id'], 'Journals'));
-
+        $rules->add($rules->existsIn(['teacher_subject_id'], 'TeachersSubjects'));
         return $rules;
     }
 }

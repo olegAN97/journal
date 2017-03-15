@@ -46,6 +46,7 @@ class JournalsTable extends Table
             'targetForeignKey' => 'subject_id',
             'joinTable' => 'journals_subjects'
         ]);
+        $this->hasMany('JournalsTeachersSubjects',['foreignKey'=>'teacher_subject_id']);
     }
 
     /**

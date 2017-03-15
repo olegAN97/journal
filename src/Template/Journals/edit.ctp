@@ -1,19 +1,29 @@
 <?php
 /**
-  * @var \App\View\AppView $this
-  */
+ * @var \App\View\AppView $this
+ */
 ?>
 
-<div class="journals form large-12 medium-8 columns content">
+<div class="box box-primary">
     <?= $this->Form->create($journal) ?>
     <fieldset>
-        <legend><?= __('Edit Journal') ?></legend>
-        <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('class');
-            echo $this->Form->control('subjects._ids', ['options' => $subjects]);
-        ?>
+        <div class="box-header with-border">
+            <h3 class="box-title"><?= __('Edit Student') ?></h3>
+        </div>
+        <div class="box-body">
+            <?php
+            echo '<div class="form-group">';
+            echo $this->Form->control('title', ['class' => 'form-control']);
+            echo '</div><div class="form-group">';
+            echo $this->Form->control('class', ['class' => 'form-control']);
+            echo '</div><div class="form-group">';
+            echo $this->Form->control('subjects._ids', ['options' => $subjects, 'class' => 'form-control']);
+            echo '</div>';
+            ?>
+        </div>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <div class="box-footer">
+        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
+    </div>
     <?= $this->Form->end() ?>
 </div>
