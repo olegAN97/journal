@@ -91,7 +91,7 @@ class AppController extends Controller
         if ($user['role'] == "teacher") {
             return true;
         }
-        if (in_array($action, ['index', 'view','login'])) {
+        if (in_array($action, ['index', 'view','display'])) {
             return true;
         }
         return false;

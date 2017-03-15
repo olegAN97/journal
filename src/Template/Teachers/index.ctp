@@ -4,9 +4,12 @@
   */
 ?>
 
-<div class="teachers index large-12 medium-8 columns content">
-    <h3><?= __('Teachers') ?></h3>
-    <table cellpadding="0" cellspacing="0">
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title"><?= __('Teachers') ?></h3>
+    </div>
+    <div class="box-body">
+    <table id="example1" class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
@@ -26,10 +29,9 @@
                 <td><?= $this->Number->format($teacher->experience) ?></td>
                 <td><?= $teacher->has('user') ? $this->Html->link($teacher->user->id, ['controller' => 'Users', 'action' => 'view', $teacher->user->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $teacher->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $teacher->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $teacher->id], ['confirm' => __('Are you sure you want to delete # {0}?', $teacher->id)]) ?>
-                </td>
+                    <?= $this->Html->link(__('View'), ['action' => 'view', $teacher->id], ['class' => 'btn btn-primary']) ?>
+                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $teacher->id], ['class' => 'btn btn-warning']) ?>
+                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $teacher->id], ['confirm' => __('Are you sure you want to delete # {0}?', $teacher->id), 'class' => 'btn btn-danger']) ?>                </td>
             </tr>
             <?php endforeach; ?>
         </tbody>
@@ -45,3 +47,19 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 </div>
+    <script src="/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+    <script>
+
+        $('#example1').DataTable({
+            "paging": false,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": false,
+            "autoWidth": true
+        });
+
+    </script>
+

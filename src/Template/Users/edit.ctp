@@ -4,16 +4,26 @@
   */
 ?>
 
-<div class="users form large-12 medium-8 columns content">
+<div class="box box-primary">
     <?= $this->Form->create($user) ?>
     <fieldset>
-        <legend><?= __('Edit User') ?></legend>
+        <div class="box-header with-border">
+            <h3 class="box-title"><?= __('Edit User') ?></h3>
+        </div>
+        <div class="box-body">
         <?php
-            echo $this->Form->control('login');
-            echo $this->Form->control('password');
-            echo $this->Form->control('role');
+            echo' <div class="form-group">';
+            echo $this->Form->control('login',['class'=>'form-control']);
+            echo'</div><div class="form-group">';
+            echo $this->Form->control('password',['class'=>'form-control']);
+            echo'</div><div class="form-group">';
+            echo $this->Form->control('role',['class'=>'form-control']);
+            echo'</div>';
         ?>
+        </div>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <div class="box-footer">
+     <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+    </div>
     <?= $this->Form->end() ?>
 </div>
