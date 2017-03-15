@@ -18,7 +18,7 @@
             echo $this->Form->control('password',['class'=>'form-control']);
             echo'</div><div class="form-group">';
             echo $this->Form->control('role',['class'=>'form-control']);
-            echo'</div><div class="form-group">';
+            echo'</div>';
         ?>
         </div>
     </fieldset>

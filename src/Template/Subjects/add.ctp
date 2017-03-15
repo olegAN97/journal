@@ -4,15 +4,24 @@
   */
 ?>
 
-<div class="subjects form large-12 medium-8 columns content">
+<div class="box box-primary">
     <?= $this->Form->create($subject) ?>
     <fieldset>
-        <legend><?= __('Add Subject') ?></legend>
+        <div class="box-header with-border">
+            <h3 class="box-title"><?= __('Add Subject') ?></h3>
+        </div>
+        <div class="box-body">
         <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('teachers._ids', ['options' => $teachers]);
+        echo' <div class="form-group">';
+            echo $this->Form->control('title',['class'=>'form-control']);
+        echo'</div><div class="form-group">';
+            echo $this->Form->control('teachers._ids', ['options' => $teachers,'class'=>'form-control']);
+        echo'</div>';
         ?>
+        </div>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <div class="box-footer">
+        <?= $this->Form->button(__('Submit'),['class'=>'btn btn-primary']) ?>
+    </div>
     <?= $this->Form->end() ?>
 </div>
