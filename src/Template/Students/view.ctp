@@ -4,9 +4,14 @@
   */
 ?>
 
-<div class="students view large-12 medium-8 columns content">
-    <h3><?= h($student->name) ?></h3>
-    <table class="vertical-table">
+<div class="box-body no-padding">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title"><?= h($student->name) ?></h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+            <table class="table table-condensed">
         <tr>
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($student->name) ?></td>
@@ -27,7 +32,7 @@
     <div class="related">
         <h4><?= __('Оцінки даного учня') ?></h4>
         <?php if (!empty($student->marks)): ?>
-        <table cellpadding="0" cellspacing="0" border="1">
+        <table class="table table-condensed">
             <tr>
 
                 <th scope="col"><?= __('Student Id') ?></th>
