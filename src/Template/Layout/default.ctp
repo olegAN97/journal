@@ -179,6 +179,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         <ul class="treeview-menu">
                             <li><?= $this->Html->link(__('New Teachers'), ['controller' => 'Teachers', 'action' => 'add']) ?></li>
                             <li><?= $this->Html->link(__('List Teachers'), ['controller' => 'Teachers', 'action' => 'index']) ?></li>
+                            <li><?= $this->Html->link(__('Link Teacher with Journal'), ['controller' => 'Teachers', 'action' => 'connect']) ?></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -202,7 +203,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                         </a>
                         <ul class="treeview-menu">
                             <li><?= $this->Html->link(__('New Marks'), ['controller' => 'Marks', 'action' => 'add']) ?></li>
-                            <li><?= $this->Html->link(__('List Marks'), ['controller' => 'Marks', 'action' => 'index']) ?></li>
                         </ul>
                     </li>
 

@@ -19,6 +19,8 @@ use Cake\Validation\Validator;
  * @method \App\Model\Entity\Mark patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
  * @method \App\Model\Entity\Mark[] patchEntities($entities, array $data, array $options = [])
  * @method \App\Model\Entity\Mark findOrCreate($search, callable $callback = null, $options = [])
+ *
+ * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
 class MarksTable extends Table
 {
@@ -36,6 +38,8 @@ class MarksTable extends Table
         $this->setTable('marks');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+
+        $this->addBehavior('Timestamp');
 
         $this->belongsTo('Students', [
             'foreignKey' => 'student_id',

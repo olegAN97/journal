@@ -11,6 +11,8 @@ use Cake\ORM\Entity;
  * @property int $subject_id
  * @property int $mark
  * @property string $n
+ * @property \Cake\I18n\Time $created
+ * @property \Cake\I18n\Time $modified
  *
  * @property \App\Model\Entity\Student $student
  * @property \App\Model\Entity\Subject $subject
