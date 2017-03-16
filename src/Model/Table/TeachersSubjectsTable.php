@@ -45,7 +45,6 @@ class TeachersSubjectsTable extends Table
             'foreignKey' => 'subject_id',
             'joinType' => 'INNER'
         ]);
-        $this->hasMany('JournalsTeachersSubjects');
     }
 
     /**
