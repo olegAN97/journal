@@ -114,31 +114,4 @@ class TeachersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
-    /**
-     * Link teachers subject and journal
-     */
-    public function connect()
-    {
-        $teachers_subjects=TableRegistry::get('JournalsTeachersSubjects')->newEntity();
-        if ($this->request->is('post')) {
-            $link= TableRegistry::get('JournalsTeachersSubjects')->patchEntity($teachers_subjects, $this->request->getData());
-            if (TableRegistry::get('JournalsTeachersSubjects')->save($link)) {
-                $this->Flash->success(__('The link has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The link could not be saved. Please, try again.'));
-        }
-        $data = TableRegistry::get('TeachersSubjects')->find('all')->contain(['Teachers','Subjects'])->toList();
-        $journals= TableRegistry::get('Journals')->find('list');
-        $x =[];
-        foreach ($data as $key)
-        {
-            $x[$key->id]=$key->teacher->name.' '.$key->subject->title;
-        }
-        $data=$x;
-        $this->set(compact('journals','data','teachers_subjects'));
-        $this->set('_serialize', ['journals','data','teachers_subjects']);
-
-    }
 }
