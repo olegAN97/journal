@@ -52,7 +52,27 @@ Router::scope('/', function ($routes) {
             ]
         ],
         'only' => ['data-table']
+
     ]);
+    $routes->resources('Tests', [
+        'map' => [
+            'save' => [
+                'action' => 'save',
+                'method' => 'POST'
+            ],
+            'update' => [
+                'action' => 'update',
+                'method' => 'POST'
+            ],
+            'check' => [
+                'action' => 'check',
+                'method' => 'POST'
+            ]
+        ],
+        'only' => ['save','update']
+
+    ]);
+
     /**
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
      * its action called 'display', and we pass a param to select the view file

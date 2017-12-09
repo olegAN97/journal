@@ -44,6 +44,11 @@ class StudentsTable extends Table
         $this->hasMany('Marks', [
             'foreignKey' => 'student_id'
         ]);
+        $this->belongsToMany('Questions', [
+            'foreignKey' => 'user_id',
+            'targetForeignKey' => 'question_id',
+            'joinTable' => 'questions_users'
+        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id']);
     }

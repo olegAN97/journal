@@ -78,22 +78,22 @@ class AppController extends Controller
         }
     }
 
-    /**
-     * Check is current user authorized
-     *
-     * @param $user
-     * @return bool
-     */
-    public function isAuthorized($user)
-    {
-        $action = $this->request->getParam('action');
-        $user = $this->Auth->user();
-        if ($user['role'] == "teacher") {
-            return true;
+        /**
+         * Check is current user authorized
+         *
+         * @param $user
+         * @return bool
+         */
+        public function isAuthorized($user)
+        {
+            $action = $this->request->getParam('action');
+            $user = $this->Auth->user();
+            if ($user['role'] == "teacher") {
+                return true;
+            }
+            if (in_array($action, ['index', 'view','display'])) {
+                return true;
+            }
+            return false;
         }
-        if (in_array($action, ['index', 'view','display'])) {
-            return true;
-        }
-        return false;
-    }
 }

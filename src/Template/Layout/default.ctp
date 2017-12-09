@@ -39,6 +39,8 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <link rel="stylesheet" href="/extended/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="/css/checkbox.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/admin/dist/css/skins/_all-skins.min.css">
@@ -52,10 +54,14 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <link rel="stylesheet" href="/admin/plugins/datepicker/datepicker3.css">
     <!-- Daterange picker -->
     <link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="/admin/plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="/admin/plugins/fullcalendar/fullcalendar.print.css" media="print">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- jQuery 2.2.3 -->
     <script src="/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="/extended/moment.min.js"></script>
+<!--    <script src="/admin/plugins/fullcalendar/fullcalendar.min.js"></script>-->
     <!-- jQuery UI 1.11.4 -->
     <script src="/extended/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -75,7 +81,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <!-- jQuery Knob Chart -->
     <script src="/admin/plugins/knob/jquery.knob.js"></script>
     <!-- daterangepicker -->
-    <script src="/extended/moment.min.js"></script>
     <script src="/admin/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- datepicker -->
     <script src="/admin/plugins/datepicker/bootstrap-datepicker.js"></script>
@@ -204,7 +209,19 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <li><?= $this->Html->link(__('New Marks'), ['controller' => 'Marks', 'action' => 'add']) ?></li>
                         </ul>
                     </li>
-
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-check-square-o"></i>
+                            <span>Tests</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><?= $this->Html->link(__('New Tests'), ['controller' => 'Tests', 'action' => 'add']) ?></li>
+                            <li><?= $this->Html->link(__('List Test'), ['controller' => 'Tests', 'action' => 'index']) ?></li>
+                            <li><?= $this->Html->link(__('Show Test Plan'), ['controller' => 'Tests', 'action' => 'show']) ?></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </section>

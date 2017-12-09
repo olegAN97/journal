@@ -117,7 +117,7 @@ class JournalsController extends AppController
     }
 
     /**
-     * Api action to  get data for marks table
+     * Api action to  get data from marks table
      */
     public function dataTable()
     {
@@ -132,5 +132,25 @@ class JournalsController extends AppController
             return (new Response(['body'=>Json::encode($str)]));
         }
         return (new Response(['body'=>Json::encode('Invalid data')]));
+    }
+
+
+    /**
+     * Check is current user authorized
+     *
+     * @param $user
+     * @return bool
+     */
+    public function isAuthorized($user)
+    {
+        $action = $this->request->getParam('action');
+        $user = $this->Auth->user();
+        if ($user['role'] == "teacher") {
+            return true;
+        }
+        if (in_array($action, ['index', 'view','display','dataTable'])) {
+            return true;
+        }
+        return false;
     }
 }

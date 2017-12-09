@@ -11,6 +11,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Teacher[] $teachers
  * @property \App\Model\Entity\Journal[] $journals
+ * @property \App\Model\Entity\Tests[] $tests
  * @property \App\Model\Entity\Mark[] $marks
  */
 class Subject extends Entity
