@@ -45,6 +45,9 @@ class SubjectsTable extends Table
         $this->hasMany('Tests', [
             'foreignKey' => 'subject_id'
         ]);
+        $this->hasMany('Resources', [
+            'foreignKey' => 'subject_id'
+        ]);
         $this->belongsToMany('Journals', [
             'foreignKey' => 'subject_id',
             'targetForeignKey' => 'journal_id',

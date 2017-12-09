@@ -37,6 +37,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/extended/ionicons.min.css">
+    <link rel="stylesheet" href="/css/drop.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin/dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="/css/checkbox.css">
@@ -220,6 +221,18 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                             <li><?= $this->Html->link(__('New Tests'), ['controller' => 'Tests', 'action' => 'add']) ?></li>
                             <li><?= $this->Html->link(__('List Test'), ['controller' => 'Tests', 'action' => 'index']) ?></li>
                             <li><?= $this->Html->link(__('Show Test Plan'), ['controller' => 'Tests', 'action' => 'show']) ?></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-book"></i>
+                            <span>Resources</span>
+                            <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><?= $this->Html->link(__('New Resources'), ['controller' => 'Resources', 'action' => 'add']) ?></li>
+                            <li><?= $this->Html->link(__('List Resources'), ['controller' => 'Resources', 'action' => 'index']) ?></li>
                         </ul>
                     </li>
                 </ul>
